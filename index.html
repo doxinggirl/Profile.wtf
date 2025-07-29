@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PTSD.WTF</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet" />
+
+  <style>
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+
+    #bg-image {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+      z-index: -2; 
+    }
+
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    body {
+      font-family: 'Reenie Beanie', cursive;
+      font-weight: 300;
+      margin: 0;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #000;
+      opacity: 0;
+      animation: fadeIn 1.5s ease-in-out forwards;
+    }
+
+    .glass-panel {
+      background: rgba(30, 30, 40, 0.6);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 40px 32px;
+      margin-top: 60px;
+      width: 90%;
+      max-width: 700px;
+      transition: box-shadow 0.3s;
+    }
+
+    header {
+      margin-top: 40px;
+      width: 100%;
+      background: transparent;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    nav ul li {
+      color: #eee;
+      cursor: pointer;
+      font-weight: bold;
+      transition: color 0.3s, transform 0.2s;
+      user-select: none;
+      padding: 8px 18px;
+      border-radius: 12px;
+    }
+
+    nav ul li:hover {
+      color: #ffffff;
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    #top-message {
+      color: #fff;
+      font-family: 'Reenie Beanie', cursive;
+      font-size: 54px;
+      text-align: center;
+      margin-top: 20px;
+      user-select: none;
+      width: 100%;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.3);
+    }
+
+    #small-top-message {
+      color: #fff;
+      font-family: 'Reenie Beanie', cursive;
+      font-size: 28px;
+      text-align: center;
+      margin-top: 10px;
+      user-select: none;
+      width: 100%;
+      opacity: 0.8;
+    }
+
+    main {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-grow: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="bg-image"></div>
+
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="background.mp4" type="video/mp4">
+    Go to sleep
+  </video>
+
+  <header>
+    <nav>
+      <ul>
+        <li onclick="location.href='index.html'">User</li>
+        <li onclick="location.href='Site/Project.html'">Project</li>
+        <li onclick="location.href='Site/Contact.html'">Contact</li>
+        <li onclick="location.href='Site/Donate.html'">Donate</li>
+      </ul>
+    </nav>
+  </header>
+
+  <div id="top-message">Hello World!</div>
+  <hr style="width: 30%; margin: 10px auto; border: none; border-top: 2px solid rgba(255,255,255,0.2);">
+  <div id="small-top-message"> </div>
+  <p> </p>
+  <p> </p>
+  <p> </p>
+  <hr style="width: 30%; margin: 10px auto; border: none; border-top: 2px solid rgba(255,255,255,0.2);">
+
+  <script>
+    const url = [
+      "https://raw.githubusercontent.com/doxinggirl/Profile.wtf/refs/heads/main/image/1.png",
+      "https://raw.githubusercontent.com/doxinggirl/Profile.wtf/refs/heads/main/image/2.png",
+      "https://raw.githubusercontent.com/doxinggirl/Profile.wtf/refs/heads/main/image/3.png",
+      "https://raw.githubusercontent.com/doxinggirl/Profile.wtf/refs/heads/main/image/4.png",
+    ];
+
+    const selectedUrl = url[Math.floor(Math.random() * url.length)];
+
+    const bgDiv = document.getElementById("bg-image");
+    bgDiv.style.backgroundImage = `url(${selectedUrl})`;
+    setTimeout(() => {
+      bgDiv.style.opacity = '1';
+    }, 50);
+  </script>
+
+  <script src="js/TITLE.js"></script>
+  <script src="js/MESSSAGE.js"></script>
+  <script src="js/debbuger.js"></script>
+
+</body>
+</html>
